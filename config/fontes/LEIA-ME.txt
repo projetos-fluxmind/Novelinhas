@@ -1,0 +1,3 @@
+Coloque aqui o .ttf da fonte da legenda (padrao: Anton).
+Baixe em https://fonts.google.com/specimen/Anton e copie Anton-Regular.ttf para esta pasta.
+Sem ela, a legenda sai na fonte que o sistema tiver no lugar.

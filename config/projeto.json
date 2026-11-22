@@ -1,0 +1,17 @@
+{
+  "nome_serie": "Novelinha das Frutas",
+  "arroba": "@novelinhadasfrutas",
+  "hashtags": ["#novelinha", "#frutas", "#novela", "#drama", "#shorts"],
+  "estilo_visual": "Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo",
+
+  "video":   { "fps": 30, "crf": 20, "preset": "veryfast", "dur_plano_mudo": 2.0 },
+  "legenda": { "fonte": "Anton", "tamanho": 88, "max_chars": 20, "max_linhas": 2,
+               "margem_vertical": 620, "margem_lateral": 110, "contorno": 7,
+               "maiusculas": true, "mostrar_nome": false, "animar": true },
+  "audio":   { "velocidade_voz": 1.08, "respiro_antes": 0.15, "respiro_depois": 0.30,
+               "volume_trilha": 0.20, "ducking": true, "loudness": -14, "volume_sfx": 0.8 },
+  "gancho":  { "duracao": 3.0, "margem_topo": 300, "tamanho": 70 },
+  "final":   { "texto": "CONTINUA...", "duracao": 1.6 },
+  "marca":   { "posicao": "topo-esquerda", "altura": 64, "opacidade": 0.85 },
+  "metas":   { "min_segundos": 61, "max_segundos": 180 }
+}

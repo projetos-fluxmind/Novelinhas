@@ -1,0 +1,4 @@
+__pycache__/
+episodios/*/saida/
+/take*.wav
+*.parcial.mp4

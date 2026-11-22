@@ -1,0 +1,23 @@
+{
+  "morango": {
+    "nome": "Moranguinha",
+    "legenda_cor": "#FF4D6D",
+    "voz": "Kore",
+    "voz_estilo": "jovem, dramatica, fala rapido quando fica nervosa",
+    "visual": "morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa"
+  },
+  "banana": {
+    "nome": "Banana",
+    "legenda_cor": "#FFD60A",
+    "voz": "Puck",
+    "voz_estilo": "debochada, fofoqueira, risadinha no fim das frases",
+    "visual": "banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola"
+  },
+  "abacaxi": {
+    "nome": "Seu Abacaxi",
+    "legenda_cor": "#7CFC00",
+    "voz": "Charon",
+    "voz_estilo": "grave, serio, pai rigido e desconfiado",
+    "visual": "abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas"
+  }
+}
