@@ -1,9 +1,9 @@
 # Vozes - episodio 1
 
-12 falas em 3 take(s). Gere cada take separado e exporte em WAV.
+14 falas em 4 take(s). Gere cada take separado e exporte em WAV.
 Depois rode:
 
-    python montar.py split episodios/0001 --audio take1.wav --audio take2.wav --audio take3.wav
+    python montar.py split episodios/0001 --audio take1.wav --audio take2.wav --audio take3.wav --audio take4.wav
 
 O split corta nas pausas mais longas, entao deixe a pausa ENTRE falas maior que
 qualquer pausa DENTRO de uma fala (evite reticencias longas no meio da frase).
@@ -15,7 +15,7 @@ Locutores: Moranguinha = voz Kore (jovem, dramatica, fala rapido quando fica ner
 ```
 Leia como uma novela dramatica e engracada, com uma pausa clara de 1 segundo entre cada fala.
 Moranguinha: Banana! Voce nao vai acreditar no que eu acabei de ver!
-Banana: Se for fofoca, senta que eu tenho tempo.
+Banana: Se for fofoca, senta que eu tenho tempo. Mas fala baixo, que as paredes tem ouvido.
 Moranguinha: Eu vi o Seu Abacaxi saindo escondido de madrugada.
 Moranguinha: Com uma mala enorme!
 Banana: Ah, deve ser coisa da sua cabeca, amiga. Esquece isso.
@@ -36,10 +36,20 @@ Moranguinha: Banana, voce mentiu pra mim?
 
 ## Take 3  (2 falas)
 
-Locutores: Banana = voz Puck (debochada, fofoqueira, risadinha no fim das frases); Seu Abacaxi = voz Charon (grave, serio, pai rigido e desconfiado)
+Locutores: Banana = voz Puck (debochada, fofoqueira, risadinha no fim das frases); Moranguinha = voz Kore (jovem, dramatica, fala rapido quando fica nervosa)
 
 ```
 Leia como uma novela dramatica e engracada, com uma pausa clara de 1 segundo entre cada fala.
 Banana: Eu ia te contar, juro. Mas o Seu Abacaxi me fez prometer.
+Moranguinha: Prometer o que? Que segredo e esse que todo mundo sabe, menos eu?
+```
+
+## Take 4  (2 falas)
+
+Locutores: Seu Abacaxi = voz Charon (grave, serio, pai rigido e desconfiado)
+
+```
+Leia como uma novela dramatica e engracada, com uma pausa clara de 1 segundo entre cada fala.
+Seu Abacaxi: Senta, Moranguinha. Essa historia comeca no dia em que voce nasceu.
 Seu Abacaxi: Moranguinha, o que tem nessa mala vai mudar a sua vida para sempre.
 ```

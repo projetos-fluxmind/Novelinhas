@@ -12,10 +12,22 @@ python montar.py novo 2 --titulo "A traição da Banana"   # cria episodios/0002
 # edite o roteiro
 python montar.py preparar episodios/0002                 # gera prompts.md e falas-tts.md
 # gere as imagens/clipes e o áudio das vozes (veja abaixo)
-python montar.py split   episodios/0002 --audio take1.wav --audio take2.wav
+python montar.py importar episodios/0002 entrada/0002     # imagens e áudios com qualquer nome
 python montar.py validar episodios/0002                  # diz exatamente o que falta
 python montar.py render  episodios/0002                  # MP4 + capa + descrição em saida/
 ```
+
+## Entregando imagens e vozes (`importar`)
+
+Jogue tudo numa pasta (ex.: `entrada/0002/`) **sem renomear nada** e rode `importar`:
+
+- **imagens**: uma por plano, na ordem do nome (`imagem (2)` vem antes de `imagem (10)`);
+- **áudios**: se houver um arquivo por fala, cada um vai para a sua fala (o silêncio das pontas é
+  cortado); se forem takes com várias falas, passam pelo `split` automaticamente;
+- **vídeos** (opcional): precisam do número do plano no nome, ex.: `plano 7.mp4`.
+
+Imagem quadrada ou deitada (comum em gerador grátis) não é cortada: aparece inteira sobre um fundo
+desfocado dela mesma. Imagem vertical (9:16 ou 2:3) preenche a tela.
 
 ## Estrutura
 

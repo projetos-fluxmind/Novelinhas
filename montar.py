@@ -464,12 +464,15 @@ def agrupar(trechos: list[tuple[float, float]], n: int) -> list[tuple[float, flo
 
 
 def cmd_split(args) -> int:
-    ep = carregar(args.episodio)
+    return dividir(carregar(args.episodio), [Path(a) for a in args.audio], args.ruido, args.silencio)
+
+
+def dividir(ep: Episodio, audios: list[Path], ruido: float = -40, silencio: float = 0.12) -> int:
     falas = ep.falas
     if not falas:
         falhar("o roteiro nao tem falas")
-    for a in args.audio:
-        if not Path(a).exists():
+    for a in audios:
+        if not a.exists():
             falhar(f"nao achei o audio {a}")
 
     tmp = Path(tempfile.mkdtemp(prefix="split-"))
@@ -477,20 +480,20 @@ def cmd_split(args) -> int:
         # junta todos os takes num audio so, com 1,5s de silencio entre eles
         unico = tmp / "unico.wav"
         entradas, filtros = [], []
-        for i, a in enumerate(args.audio):
-            entradas += ["-i", str(Path(a).resolve())]
+        for i, a in enumerate(audios):
+            entradas += ["-i", str(a.resolve())]
             filtros.append(f"[{i}:a]aresample=48000,aformat=sample_fmts=s16:channel_layouts=mono,"
                            f"apad=pad_dur=1.5[a{i}]")
-        filtros.append("".join(f"[a{i}]" for i in range(len(args.audio)))
-                       + f"concat=n={len(args.audio)}:v=0:a=1[out]")
+        filtros.append("".join(f"[a{i}]" for i in range(len(audios)))
+                       + f"concat=n={len(audios)}:v=0:a=1[out]")
         run(["ffmpeg", "-y", "-v", "error", *entradas, "-filter_complex", ";".join(filtros),
              "-map", "[out]", "-c:a", "pcm_s16le", str(unico)])
 
-        sil, total = detectar_silencios(unico, args.ruido, args.silencio)
+        sil, total = detectar_silencios(unico, ruido, silencio)
         trechos = trechos_de_som(sil, total)
         if len(trechos) < len(falas):
             falhar(f"achei so {len(trechos)} trecho(s) de voz para {len(falas)} falas. "
-                   f"Tente --ruido {args.ruido + 5:g} (menos sensivel ao chiado) ou --silencio menor, "
+                   f"Tente --ruido {ruido + 5:g} (menos sensivel ao chiado) ou --silencio menor, "
                    "ou confira se o take tem todas as falas.")
         segmentos = agrupar(trechos, len(falas))
 
@@ -523,6 +526,88 @@ def cmd_split(args) -> int:
         print(f"\nproximo passo: montar.py render {ep.dir.relative_to(ep.raiz)}")
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
+    return 0
+
+
+# ---------------------------------------------------------------- importar
+
+EXT_IMG = {".png", ".jpg", ".jpeg", ".webp"}
+EXT_VID = {".mp4", ".mov", ".webm", ".mkv"}
+EXT_AUD = {".wav", ".mp3", ".m4a", ".ogg", ".opus", ".aac", ".flac"}
+
+
+def ordem_natural(p: Path) -> list:
+    """'img2' antes de 'img10', como uma pessoa ordenaria."""
+    return [int(t) if t.isdigit() else t.lower() for t in re.split(r"(\d+)", p.name)]
+
+
+def cmd_importar(args) -> int:
+    """Distribui arquivos com qualquer nome pelos planos e falas, na ordem do nome.
+
+    - imagens: uma por plano, na ordem
+    - videos:  so entram se o nome tiver o numero do plano (ex.: plano3.mp4, 03.mp4)
+    - audios:  um por fala (mesma quantidade de falas) ou takes inteiros (passa pelo split)
+    """
+    ep = carregar(args.episodio)
+    pasta = Path(args.pasta)
+    if not pasta.is_dir():
+        falhar(f"{pasta} nao e uma pasta")
+    arquivos = sorted((f for f in pasta.iterdir() if f.is_file()), key=ordem_natural)
+    imgs = [f for f in arquivos if f.suffix.lower() in EXT_IMG]
+    vids = [f for f in arquivos if f.suffix.lower() in EXT_VID]
+    auds = [f for f in arquivos if f.suffix.lower() in EXT_AUD]
+    numeros = [p.n for p in ep.planos]
+
+    if imgs:
+        (ep.dir / "frames").mkdir(exist_ok=True)
+        if len(imgs) != len(numeros):
+            print(f"  aviso: {len(imgs)} imagem(ns) para {len(numeros)} planos; "
+                  f"{'sobram' if len(imgs) > len(numeros) else 'faltam'} {abs(len(imgs) - len(numeros))}")
+        for n, img in zip(numeros, imgs):
+            for velho in (ep.dir / "frames").glob(f"plano-{n:02d}.*"):
+                velho.unlink()
+            destino = ep.dir / "frames" / f"plano-{n:02d}{img.suffix.lower()}"
+            shutil.copy2(img, destino)
+            print(f"  {img.name:30} -> frames/{destino.name}")
+
+    for v in vids:
+        m = re.findall(r"\d+", v.stem)
+        n = int(m[-1]) if m else None
+        if n not in numeros:
+            print(f"  aviso: nao sei de qual plano e {v.name} (ponha o numero do plano no nome); ignorado")
+            continue
+        (ep.dir / "clipes").mkdir(exist_ok=True)
+        destino = ep.dir / "clipes" / f"plano-{n:02d}.mp4"
+        if v.suffix.lower() == ".mp4":
+            shutil.copy2(v, destino)
+        else:
+            run(["ffmpeg", "-y", "-v", "error", "-i", str(v), "-an", "-c:v", "libx264", "-crf", "18",
+                 str(destino)])
+        print(f"  {v.name:30} -> clipes/plano-{n:02d}.mp4")
+
+    falas = ep.falas
+    if auds and len(auds) == len(falas) and len(auds) > 1:
+        # uma fala por arquivo: so converte e tira o silencio das pontas
+        (ep.dir / "vozes").mkdir(exist_ok=True)
+        aparar = ("silenceremove=start_periods=1:start_threshold=-45dB,areverse,"
+                  "silenceremove=start_periods=1:start_threshold=-45dB,areverse")
+        for f, a in zip(falas, auds):
+            run(["ffmpeg", "-y", "-v", "error", "-i", str(a), "-af", aparar, "-ar", "48000", "-ac", "1",
+                 "-c:a", "pcm_s16le", str(ep.dir / "vozes" / f.arquivo)])
+            print(f"  {a.name:30} -> vozes/{f.arquivo}  [{f.personagem}] {f.texto[:36]}")
+    elif auds:
+        print(f"  {len(auds)} audio(s) para {len(falas)} falas: tratando como take(s) inteiro(s)\n")
+        dividir(ep, auds, args.ruido, args.silencio)
+
+    if not (imgs or vids or auds):
+        print("nenhuma imagem, video ou audio na pasta")
+        return 1
+    print()
+    erros = problemas(ep)
+    if erros:
+        print("ainda falta:\n  - " + "\n  - ".join(erros))
+    else:
+        print(f"tudo no lugar. proximo passo: montar.py render {ep.dir.relative_to(ep.raiz)}")
     return 0
 
 
@@ -623,6 +708,16 @@ def expr_movimento(mov: str, frames: int, fps: int) -> tuple[str, str, str]:
     return "1", "0", "0"
 
 
+def proporcao(img: Path) -> float:
+    out = run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
+               "stream=width,height", "-of", "csv=p=0:s=x", str(img)]).stdout.strip()
+    try:
+        w, h = (int(v) for v in out.split("x")[:2])
+        return w / h
+    except ValueError:
+        return 0.5625
+
+
 def render_segmento(origem: Path, movel: bool, frames: int, mov: str, cfg: dict, destino: Path) -> None:
     fps = cfg["video"]["fps"]
     enquadrar = f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1"
@@ -633,12 +728,21 @@ def render_segmento(origem: Path, movel: bool, frames: int, mov: str, cfg: dict,
         cmd = ["ffmpeg", "-y", "-v", "error", "-i", str(origem)]
     else:
         z, x, y = expr_movimento(mov, frames, fps)
+        W2, H2 = W * 2, H * 2
+        if proporcao(origem) > 0.7:
+            # imagem quadrada/deitada: cortar para 9:16 perderia as laterais (e personagens).
+            # Mostra a imagem inteira sobre um fundo desfocado dela mesma.
+            base = (f"split[a][b];[a]scale={W2}:{H2}:force_original_aspect_ratio=increase,"
+                    f"crop={W2}:{H2},boxblur=40:4,eq=brightness=-0.10[fundo];"
+                    f"[b]scale={W2}:{H2}:force_original_aspect_ratio=decrease[img];"
+                    "[fundo][img]overlay=(W-w)/2:(H-h)/2,")
+        else:
+            base = f"scale={W2}:{H2}:force_original_aspect_ratio=increase,crop={W2}:{H2},"
         # 2x de resolucao antes do zoompan tira o "tremido" do arredondamento de pixel
-        vf = (f"scale={W * 2}:{H * 2}:force_original_aspect_ratio=increase,crop={W * 2}:{H * 2},"
-              f"zoompan=z='{z}':x='{x}':y='{y}':d={frames}:s={W}x{H}:fps={fps},"
+        vf = (base + f"zoompan=z='{z}':x='{x}':y='{y}':d={frames}:s={W}x{H}:fps={fps},"
               "setsar=1,format=yuv420p")
         cmd = ["ffmpeg", "-y", "-v", "error", "-i", str(origem)]
-    run(cmd + ["-vf", vf, "-frames:v", str(frames), "-r", str(fps),
+    run(cmd + ["-filter_complex" if not movel else "-vf", vf, "-frames:v", str(frames), "-r", str(fps),
                "-c:v", "libx264", "-crf", str(cfg["video"]["crf"]), "-preset", cfg["video"]["preset"],
                "-pix_fmt", "yuv420p", "-an", str(destino)])
 
@@ -933,6 +1037,13 @@ def main() -> int:
     sp.add_argument("--ruido", type=float, default=-40, help="limiar de silencio em dB (padrao -40)")
     sp.add_argument("--silencio", type=float, default=0.12, help="pausa minima considerada, em segundos")
     sp.set_defaults(func=cmd_split)
+
+    ip = sub.add_parser("importar", help="distribui imagens/audios de uma pasta (qualquer nome) pelo episodio")
+    ip.add_argument("episodio")
+    ip.add_argument("pasta", help="pasta com os arquivos, ex: entrada/0001")
+    ip.add_argument("--ruido", type=float, default=-40)
+    ip.add_argument("--silencio", type=float, default=0.12)
+    ip.set_defaults(func=cmd_importar)
 
     vp = sub.add_parser("validar", help="confere se o episodio tem tudo para montar")
     vp.add_argument("episodio")
