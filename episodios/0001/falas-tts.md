@@ -14,12 +14,12 @@ Locutores: Moranguinha = voz Kore (jovem, dramatica, fala rapido quando fica ner
 
 ```
 Leia como uma novela dramatica e engracada, com uma pausa clara de 1 segundo entre cada fala.
-Moranguinha: Banana! Voce nao vai acreditar no que eu acabei de ver!
-Banana: Se for fofoca, senta que eu tenho tempo. Mas fala baixo, que as paredes tem ouvido.
+Moranguinha: Banana! Você não vai acreditar no que eu acabei de ver!
+Banana: Se for fofoca, senta que eu tenho tempo. Mas fala baixo, que as paredes têm ouvido.
 Moranguinha: Eu vi o Seu Abacaxi saindo escondido de madrugada.
 Moranguinha: Com uma mala enorme!
-Banana: Ah, deve ser coisa da sua cabeca, amiga. Esquece isso.
-Moranguinha: Por que voce ficou nervosa desse jeito? Voce sabe de alguma coisa!
+Banana: Ah, deve ser coisa da sua cabeça, amiga. Esquece isso.
+Moranguinha: Por que você ficou nervosa desse jeito? Você sabe de alguma coisa!
 ```
 
 ## Take 2  (4 falas)
@@ -29,9 +29,9 @@ Locutores: Seu Abacaxi = voz Charon (grave, serio, pai rigido e desconfiado); Mo
 ```
 Leia como uma novela dramatica e engracada, com uma pausa clara de 1 segundo entre cada fala.
 Seu Abacaxi: Quem estava falando de mim?
-Seu Abacaxi: Ja que voces querem tanto saber, eu vou contar a verdade.
-Seu Abacaxi: Mas a Banana sabe disso ha muito tempo.
-Moranguinha: Banana, voce mentiu pra mim?
+Seu Abacaxi: Já que vocês querem tanto saber, eu vou contar a verdade.
+Seu Abacaxi: Mas a Banana sabe disso há muito tempo.
+Moranguinha: Banana, você mentiu pra mim?
 ```
 
 ## Take 3  (2 falas)
@@ -41,7 +41,7 @@ Locutores: Banana = voz Puck (debochada, fofoqueira, risadinha no fim das frases
 ```
 Leia como uma novela dramatica e engracada, com uma pausa clara de 1 segundo entre cada fala.
 Banana: Eu ia te contar, juro. Mas o Seu Abacaxi me fez prometer.
-Moranguinha: Prometer o que? Que segredo e esse que todo mundo sabe, menos eu?
+Moranguinha: Prometer o quê? Que segredo é esse que todo mundo sabe, menos eu?
 ```
 
 ## Take 4  (2 falas)
@@ -50,6 +50,6 @@ Locutores: Seu Abacaxi = voz Charon (grave, serio, pai rigido e desconfiado)
 
 ```
 Leia como uma novela dramatica e engracada, com uma pausa clara de 1 segundo entre cada fala.
-Seu Abacaxi: Senta, Moranguinha. Essa historia comeca no dia em que voce nasceu.
+Seu Abacaxi: Senta, Moranguinha. Essa história começa no dia em que você nasceu.
 Seu Abacaxi: Moranguinha, o que tem nessa mala vai mudar a sua vida para sempre.
 ```

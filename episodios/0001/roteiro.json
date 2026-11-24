@@ -3,7 +3,7 @@
   "titulo": "O segredo da Banana",
   "gancho": "A BANANA ESCONDEU ALGO DA MELHOR AMIGA...",
   "final": "CONTINUA...",
-  "cenario": "cozinha colorida de uma casa de frutas, manha ensolarada",
+  "cenario": "cozinha colorida de uma casa de frutas, manhã ensolarada",
   "hashtags": [
     "#moranguinha",
     "#bananafofoqueira"
@@ -16,17 +16,17 @@
       "falas": [
         {
           "personagem": "morango",
-          "texto": "Banana! Voce nao vai acreditar no que eu acabei de ver!"
+          "texto": "Banana! Você não vai acreditar no que eu acabei de ver!"
         }
       ]
     },
     {
       "n": 2,
-      "acao": "Banana lixando as unhas no balcao, sem tirar os olhos do celular",
+      "acao": "Banana lixando as unhas no balcão, sem tirar os olhos do celular",
       "falas": [
         {
           "personagem": "banana",
-          "texto": "Se for fofoca, senta que eu tenho tempo. Mas fala baixo, que as paredes tem ouvido."
+          "texto": "Se for fofoca, senta que eu tenho tempo. Mas fala baixo, que as paredes têm ouvido."
         }
       ]
     },
@@ -54,11 +54,11 @@
     },
     {
       "n": 5,
-      "acao": "Banana disfarca, olhando para os lados",
+      "acao": "Banana disfarça, olhando para os lados",
       "falas": [
         {
           "personagem": "banana",
-          "texto": "Ah, deve ser coisa da sua cabeca, amiga. Esquece isso."
+          "texto": "Ah, deve ser coisa da sua cabeça, amiga. Esquece isso."
         }
       ]
     },
@@ -69,13 +69,13 @@
       "falas": [
         {
           "personagem": "morango",
-          "texto": "Por que voce ficou nervosa desse jeito? Voce sabe de alguma coisa!"
+          "texto": "Por que você ficou nervosa desse jeito? Você sabe de alguma coisa!"
         }
       ]
     },
     {
       "n": 7,
-      "acao": "Seu Abacaxi aparece na porta, serio, com a mala na mao",
+      "acao": "Seu Abacaxi aparece na porta, sério, com a mala na mao",
       "movimento": "impacto",
       "sfx": [
         {
@@ -106,11 +106,11 @@
       "falas": [
         {
           "personagem": "abacaxi",
-          "texto": "Ja que voces querem tanto saber, eu vou contar a verdade."
+          "texto": "Já que vocês querem tanto saber, eu vou contar a verdade."
         },
         {
           "personagem": "abacaxi",
-          "texto": "Mas a Banana sabe disso ha muito tempo."
+          "texto": "Mas a Banana sabe disso há muito tempo."
         }
       ]
     },
@@ -121,13 +121,13 @@
       "falas": [
         {
           "personagem": "morango",
-          "texto": "Banana, voce mentiu pra mim?"
+          "texto": "Banana, você mentiu pra mim?"
         }
       ]
     },
     {
       "n": 11,
-      "acao": "Banana abaixa a cabeca, envergonhada",
+      "acao": "Banana abaixa a cabeça, envergonhada",
       "movimento": "zoom-out",
       "falas": [
         {
@@ -138,12 +138,12 @@
     },
     {
       "n": 12,
-      "acao": "Moranguinha da um passo para tras, com lagrimas nos olhos",
+      "acao": "Moranguinha da um passo para trás, com lágrimas nos olhos",
       "movimento": "zoom-in",
       "falas": [
         {
           "personagem": "morango",
-          "texto": "Prometer o que? Que segredo e esse que todo mundo sabe, menos eu?"
+          "texto": "Prometer o quê? Que segredo é esse que todo mundo sabe, menos eu?"
         }
       ]
     },
@@ -154,13 +154,13 @@
       "falas": [
         {
           "personagem": "abacaxi",
-          "texto": "Senta, Moranguinha. Essa historia comeca no dia em que voce nasceu."
+          "texto": "Senta, Moranguinha. Essa história começa no dia em que você nasceu."
         }
       ]
     },
     {
       "n": 14,
-      "acao": "Banana tapa a boca com as maos, chocada",
+      "acao": "Banana tapa a boca com as mãos, chocada",
       "movimento": "impacto",
       "duracao": 1.3,
       "sfx": "suspense.wav"

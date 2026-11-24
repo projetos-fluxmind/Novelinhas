@@ -9,7 +9,7 @@ Use sempre a mesma imagem de referencia de cada personagem para manter a aparenc
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Moranguinha entra correndo na cozinha, ofegante e assustada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha entra correndo na cozinha, ofegante e assustada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
@@ -23,13 +23,13 @@ Moranguinha entra correndo na cozinha, ofegante e assustada. Zoom rapido dramati
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Banana lixando as unhas no balcao, sem tirar os olhos do celular. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana lixando as unhas no balcão, sem tirar os olhos do celular. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
 
 ```
-Banana lixando as unhas no balcao, sem tirar os olhos do celular. Camera lenta e sutil. Banana fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Banana lixando as unhas no balcão, sem tirar os olhos do celular. Camera lenta e sutil. Banana fala de forma expressiva, boca se mexendo. Sem texto na tela.
 ```
 
 ## Plano 03
@@ -37,7 +37,7 @@ Banana lixando as unhas no balcao, sem tirar os olhos do celular. Camera lenta e
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Moranguinha se aproxima e sussurra. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha se aproxima e sussurra. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
@@ -51,7 +51,7 @@ Moranguinha se aproxima e sussurra. Camera lenta e sutil. Moranguinha, Moranguin
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Banana derruba a lixa, olhos arregalados. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana derruba a lixa, olhos arregalados. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
@@ -65,13 +65,13 @@ Banana derruba a lixa, olhos arregalados. Camera tremida de susto. Sem texto na 
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Banana disfarca, olhando para os lados. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana disfarça, olhando para os lados. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
 
 ```
-Banana disfarca, olhando para os lados. Camera lenta e sutil. Banana fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Banana disfarça, olhando para os lados. Camera lenta e sutil. Banana fala de forma expressiva, boca se mexendo. Sem texto na tela.
 ```
 
 ## Plano 06
@@ -79,7 +79,7 @@ Banana disfarca, olhando para os lados. Camera lenta e sutil. Banana fala de for
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Moranguinha cruza os bracos, desconfiada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha cruza os bracos, desconfiada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
@@ -93,13 +93,13 @@ Moranguinha cruza os bracos, desconfiada. Camera lenta e sutil. Moranguinha fala
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Seu Abacaxi: abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Seu Abacaxi aparece na porta, serio, com a mala na mao. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Seu Abacaxi: abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Seu Abacaxi aparece na porta, sério, com a mala na mao. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
 
 ```
-Seu Abacaxi aparece na porta, serio, com a mala na mao. Zoom rapido dramatico no rosto. Seu Abacaxi fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Seu Abacaxi aparece na porta, sério, com a mala na mao. Zoom rapido dramatico no rosto. Seu Abacaxi fala de forma expressiva, boca se mexendo. Sem texto na tela.
 ```
 
 ## Plano 08
@@ -107,7 +107,7 @@ Seu Abacaxi aparece na porta, serio, com a mala na mao. Zoom rapido dramatico no
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Moranguinha e Banana congeladas, se entreolhando. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha e Banana congeladas, se entreolhando. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
@@ -121,7 +121,7 @@ Moranguinha e Banana congeladas, se entreolhando. Camera desliza para a direita.
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Seu Abacaxi: abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Seu Abacaxi coloca a mala na mesa devagar. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Seu Abacaxi: abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Seu Abacaxi coloca a mala na mesa devagar. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
@@ -135,7 +135,7 @@ Seu Abacaxi coloca a mala na mesa devagar. Camera lenta e sutil. Seu Abacaxi, Se
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Moranguinha olha para Banana, magoada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha olha para Banana, magoada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
@@ -149,13 +149,13 @@ Moranguinha olha para Banana, magoada. Camera lenta e sutil. Moranguinha fala de
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Banana abaixa a cabeca, envergonhada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana abaixa a cabeça, envergonhada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
 
 ```
-Banana abaixa a cabeca, envergonhada. Camera lenta e sutil. Banana fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Banana abaixa a cabeça, envergonhada. Camera lenta e sutil. Banana fala de forma expressiva, boca se mexendo. Sem texto na tela.
 ```
 
 ## Plano 12
@@ -163,13 +163,13 @@ Banana abaixa a cabeca, envergonhada. Camera lenta e sutil. Banana fala de forma
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Moranguinha da um passo para tras, com lagrimas nos olhos. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha da um passo para trás, com lágrimas nos olhos. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
 
 ```
-Moranguinha da um passo para tras, com lagrimas nos olhos. Camera lenta e sutil. Moranguinha fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Moranguinha da um passo para trás, com lágrimas nos olhos. Camera lenta e sutil. Moranguinha fala de forma expressiva, boca se mexendo. Sem texto na tela.
 ```
 
 ## Plano 13
@@ -177,7 +177,7 @@ Moranguinha da um passo para tras, com lagrimas nos olhos. Camera lenta e sutil.
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Seu Abacaxi: abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Seu Abacaxi suspira e puxa uma cadeira para ela. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Seu Abacaxi: abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Seu Abacaxi suspira e puxa uma cadeira para ela. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
@@ -191,13 +191,13 @@ Seu Abacaxi suspira e puxa uma cadeira para ela. Camera lenta e sutil. Seu Abaca
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Banana tapa a boca com as maos, chocada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana tapa a boca com as mãos, chocada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
 
 ```
-Banana tapa a boca com as maos, chocada. Zoom rapido dramatico no rosto. Sem texto na tela.
+Banana tapa a boca com as mãos, chocada. Zoom rapido dramatico no rosto. Sem texto na tela.
 ```
 
 ## Plano 15
@@ -205,7 +205,7 @@ Banana tapa a boca com as maos, chocada. Zoom rapido dramatico no rosto. Sem tex
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Seu Abacaxi: abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas. Cenario: cozinha colorida de uma casa de frutas, manha ensolarada. Cena: Seu Abacaxi abre a mala; uma luz dourada ilumina o rosto dos tres. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Seu Abacaxi: abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Seu Abacaxi abre a mala; uma luz dourada ilumina o rosto dos tres. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
 **Video (imagem -> video)**
