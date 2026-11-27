@@ -3,3 +3,4 @@ __pycache__/
 /take*.wav
 *.parcial.mp4
 **/episodios/*/flow/audios/
+*.zip
