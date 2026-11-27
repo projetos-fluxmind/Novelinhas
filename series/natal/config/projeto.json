@@ -55,5 +55,9 @@
   "metas": {
     "min_segundos": 61,
     "max_segundos": 180
+  },
+  "ia": {
+    "modelo_imagem": "gemini-3.1-flash-image",
+    "modelo_voz": "gemini-3.8-flash-tts"
   }
 }

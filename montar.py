@@ -49,8 +49,7 @@ PADRAO_PROJETO: dict = {
     "hashtags": ["#novelinha", "#frutas", "#novela", "#shorts"],
     "estilo_visual": "",
     "video": {"fps": 30, "crf": 20, "preset": "veryfast", "dur_plano_mudo": 2.0},
-    "ia": {"modelo_imagem": "gemini-2.5-flash-image", "modelo_voz": "gemini-2.5-flash-preview-tts",
-           "idioma_voz": "portugues do Brasil"},
+    "ia": {"modelo_imagem": "gemini-3.1-flash-image", "modelo_voz": "gemini-3.8-flash-tts"},
     "legenda": {
         "fonte": "Anton", "tamanho": 88, "max_chars": 20, "max_linhas": 2,
         "margem_vertical": 620, "margem_lateral": 110, "contorno": 7,
@@ -1216,24 +1215,48 @@ def gerar_imagem(modelo: str, prompt: str, refs: list[Path], destino: Path, prop
     bruto.unlink()
 
 
-def gerar_voz(modelo: str, texto: str, voz: str, estilo: str, idioma: str, destino: Path) -> None:
-    instrucao = f"Leia em {idioma}" + (f", com este jeito: {estilo}" if estilo else "")
+def gerar_voz(modelo: str, texto: str, voz: str, tags: str, destino: Path) -> None:
+    # estilo vai em tags de audio ("[bossy] [fast] texto"): instrucao em texto corrido
+    # acaba sendo lida em voz alta pelos modelos de TTS
     r = gemini("POST", f"models/{modelo}:generateContent", {
-        "contents": [{"parts": [{"text": f"{instrucao}:\n{texto}"}]}],
+        "contents": [{"parts": [{"text": f"{tags} {texto}".strip()}]}],
         "generationConfig": {"responseModalities": ["AUDIO"],
                              "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voz}}}}})
     dado = partes_saida(r)[0]
-    pcm = base64.b64decode(dado["data"])
+    bruto = base64.b64decode(dado["data"])
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    if bruto[:4] == b"RIFF":  # modelos novos ja devolvem WAV
+        destino.write_bytes(bruto)
+        return
     taxa = 24000
     m = re.search(r"rate=(\d+)", dado.get("mimeType", dado.get("mime_type", "")))
     if m:
         taxa = int(m.group(1))
-    destino.parent.mkdir(parents=True, exist_ok=True)
     with wave.open(str(destino), "wb") as w:
         w.setnchannels(1)
         w.setsampwidth(2)
         w.setframerate(taxa)
-        w.writeframes(pcm)
+        w.writeframes(bruto)
+
+
+def cortar_falas(audio: Path, destinos: list[Path], esperadas: list[float]) -> bool:
+    """Corta um audio com varias falas nas n-1 pausas mais longas. False se nao parecer certo."""
+    n = len(destinos)
+    sil, total = detectar_silencios(audio, -40, 0.12)
+    trechos = trechos_de_som(sil, total)
+    if len(trechos) < n:
+        return False
+    partes = agrupar(trechos, n)
+    durs = [b - a for a, b in partes]
+    # proporcao entre duracao real e estimada nao pode variar demais de uma fala para outra
+    razoes = [d / max(e, 0.3) for d, e in zip(durs, esperadas)]
+    if max(razoes) > 2.5 * min(razoes):
+        return False
+    for (a, b), destino in zip(partes, destinos):
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        run(["ffmpeg", "-y", "-v", "error", "-i", str(audio), "-ss", f"{max(a - 0.05, 0):.3f}",
+             "-to", f"{min(b + 0.08, total):.3f}", "-c:a", "pcm_s16le", str(destino)])
+    return True
 
 
 def cmd_gerar(args) -> int:
@@ -1268,16 +1291,31 @@ def cmd_gerar(args) -> int:
 
     if not args.so_imagens:
         m_voz = modelo_disponivel(ia["modelo_voz"], "voz")
+        # um pedido por personagem com todas as falas dele (a cota gratis e de poucos pedidos
+        # por dia); o audio e cortado nas pausas. Se o corte nao bater, cai para 1 pedido por fala.
+        faltando: dict[str, list[Fala]] = {}
         for f in ep.falas:
-            alvo = ep.dir / "vozes" / f.arquivo
-            if alvo.exists():
-                continue
-            d = ep.personagens[f.personagem]
-            print(f"voz plano {f.plano:02d} fala {f.indice:02d} ({d.get('nome')})...")
+            if not (ep.dir / "vozes" / f.arquivo).exists():
+                faltando.setdefault(f.personagem, []).append(f)
+        for pid, fs in faltando.items():
+            d = ep.personagens[pid]
+            voz, tags = d.get("voz", "Kore"), d.get("voz_tags", "")
+            print(f"vozes de {d.get('nome', pid)} ({len(fs)} falas, 1 pedido)...")
             try:
-                gerar_voz(m_voz, f.texto, d.get("voz", "Kore"), d.get("voz_estilo", ""), ia["idioma_voz"], alvo)
+                if len(fs) > 1:
+                    with tempfile.TemporaryDirectory() as tmp:
+                        junto = Path(tmp) / "junto.wav"
+                        gerar_voz(m_voz, " [long pause] ".join(f.texto for f in fs), voz, tags, junto)
+                        if cortar_falas(junto, [ep.dir / "vozes" / f.arquivo for f in fs],
+                                        [estimar_dur(f.texto) for f in fs]):
+                            continue
+                    print("  o corte nas pausas nao bateu; gerando fala por fala")
+                for f in fs:
+                    alvo = ep.dir / "vozes" / f.arquivo
+                    if not alvo.exists():
+                        gerar_voz(m_voz, f.texto, voz, tags, alvo)
             except RuntimeError as e:
-                falhas.append(f"voz {f.arquivo}: {e}")
+                falhas.append(f"vozes de {d.get('nome', pid)}: {e}")
 
     if falhas:
         print("nao gerado:\n  - " + "\n  - ".join(falhas))

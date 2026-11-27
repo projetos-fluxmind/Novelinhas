@@ -4,34 +4,39 @@
     "legenda_cor": "#FF4D6D",
     "voz": "Kore",
     "voz_estilo": "mae brava e pratica, controla cada centavo, fala firme e rapido, comica",
-    "visual": "boneca de palito cuja cabeca e uma melancia redonda verde com listras escuras, lenco florido na cabeca, avental florido, cara de mae brava, bracos e pernas pretos e finos, luvinhas brancas de desenho animado"
+    "visual": "boneca de palito cuja cabeca e uma melancia redonda verde com listras escuras, lenco florido na cabeca, avental florido, cara de mae brava, bracos e pernas pretos e finos, luvinhas brancas de desenho animado",
+    "voz_tags": "[bossy] [fast]"
   },
   "pai": {
     "nome": "Seu Caju",
     "legenda_cor": "#FFB703",
     "voz": "Fenrir",
     "voz_estilo": "pai sonhador e empolgado, sempre com um plano infalivel, fala como vendedor de feira",
-    "visual": "boneco de palito cuja cabeca e um caju amarelo-alaranjado com a castanha no topo como topete, bigodinho fino, camiseta regata furada, chinelo de dedo, bracos e pernas pretos e finos, luvinhas brancas de desenho animado"
+    "visual": "boneco de palito cuja cabeca e um caju amarelo-alaranjado com a castanha no topo como topete, bigodinho fino, camiseta regata furada, chinelo de dedo, bracos e pernas pretos e finos, luvinhas brancas de desenho animado",
+    "voz_tags": "[excited] [enthusiastic]"
   },
   "filha": {
     "nome": "Uvinha",
     "legenda_cor": "#C77DFF",
     "voz": "Leda",
     "voz_estilo": "adolescente dramatica e revoltada, fala revirando os olhos",
-    "visual": "boneca de palito adolescente cuja cabeca e uma uva roxa redonda, rabo de cavalo de folhinha verde, aparelho nos dentes, celular velho de tela rachada na mao, bracos e pernas pretos e finos, luvinhas brancas de desenho animado"
+    "visual": "boneca de palito adolescente cuja cabeca e uma uva roxa redonda, rabo de cavalo de folhinha verde, aparelho nos dentes, celular velho de tela rachada na mao, bracos e pernas pretos e finos, luvinhas brancas de desenho animado",
+    "voz_tags": "[dramatic] [annoyed]"
   },
   "filho": {
     "nome": "Limaozinho",
     "legenda_cor": "#80ED99",
     "voz": "Puck",
     "voz_estilo": "crianca de 8 anos, voz fina, sincero demais e emburrado",
-    "visual": "boneco de palito crianca pequena cuja cabeca e um limao verde, bone virado para tras, curativo no joelho, cara emburrada, bracos e pernas pretos e finos, luvinhas brancas de desenho animado"
+    "visual": "boneco de palito crianca pequena cuja cabeca e um limao verde, bone virado para tras, curativo no joelho, cara emburrada, bracos e pernas pretos e finos, luvinhas brancas de desenho animado",
+    "voz_tags": "[childlike] [grumpy]"
   },
   "vo": {
     "nome": "Vo Passinha",
     "legenda_cor": "#F1FAEE",
     "voz": "Gacrux",
     "voz_estilo": "avo idosa, lenta e debochada, solta indiretas com voz cansada",
-    "visual": "boneca de palito idosa cuja cabeca e uma uva-passa roxo-escura bem enrugada, oculos fundo de garrafa, coque branco, xale de croche, bengala, bracos e pernas pretos e finos, luvinhas brancas de desenho animado"
+    "visual": "boneca de palito idosa cuja cabeca e uma uva-passa roxo-escura bem enrugada, oculos fundo de garrafa, coque branco, xale de croche, bengala, bracos e pernas pretos e finos, luvinhas brancas de desenho animado",
+    "voz_tags": "[old] [slow] [sarcastic]"
   }
 }
