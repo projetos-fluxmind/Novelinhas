@@ -1,0 +1,59 @@
+{
+  "nome_serie": "Natal na Base da Gambiarra",
+  "arroba": "",
+  "hashtags": [
+    "#natal",
+    "#comedia",
+    "#familia",
+    "#novelinha",
+    "#frutas",
+    "#shorts"
+  ],
+  "estilo_visual": "Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras",
+  "video": {
+    "fps": 30,
+    "crf": 20,
+    "preset": "veryfast",
+    "dur_plano_mudo": 2.0
+  },
+  "legenda": {
+    "ativa": false,
+    "fonte": "Anton",
+    "tamanho": 88,
+    "max_chars": 20,
+    "max_linhas": 2,
+    "margem_vertical": 620,
+    "margem_lateral": 110,
+    "contorno": 7,
+    "maiusculas": true,
+    "mostrar_nome": false,
+    "animar": true
+  },
+  "audio": {
+    "velocidade_voz": 1.08,
+    "respiro_antes": 0.15,
+    "respiro_depois": 0.3,
+    "volume_trilha": 0.2,
+    "ducking": true,
+    "loudness": -14,
+    "volume_sfx": 0.8
+  },
+  "gancho": {
+    "duracao": 3.0,
+    "margem_topo": 300,
+    "tamanho": 70
+  },
+  "final": {
+    "texto": "CONTINUA...",
+    "duracao": 1.6
+  },
+  "marca": {
+    "posicao": "topo-esquerda",
+    "altura": 64,
+    "opacidade": 0.85
+  },
+  "metas": {
+    "min_segundos": 61,
+    "max_segundos": 180
+  }
+}

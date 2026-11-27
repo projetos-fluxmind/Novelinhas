@@ -1,0 +1,3 @@
+Efeitos sonoros reutilizaveis entre episodios (suspense.wav, tapa.mp3, plim.mp3...).
+No roteiro: "sfx": "suspense.wav"  ou  "sfx": [{"arquivo": "suspense.wav", "em": 0.5, "volume": 0.6}]
+Um arquivo com o mesmo nome em episodios/NNNN/sfx/ tem prioridade.

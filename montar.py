@@ -20,13 +20,19 @@ So usa a biblioteca padrao do Python; precisa de ffmpeg/ffprobe no PATH.
 from __future__ import annotations
 
 import argparse
+import base64
 import copy
 import json
+import os
 import re
 import shutil
 import subprocess
 import sys
 import tempfile
+import time
+import urllib.error
+import urllib.request
+import wave
 import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -43,6 +49,8 @@ PADRAO_PROJETO: dict = {
     "hashtags": ["#novelinha", "#frutas", "#novela", "#shorts"],
     "estilo_visual": "",
     "video": {"fps": 30, "crf": 20, "preset": "veryfast", "dur_plano_mudo": 2.0},
+    "ia": {"modelo_imagem": "gemini-2.5-flash-image", "modelo_voz": "gemini-2.5-flash-preview-tts",
+           "idioma_voz": "portugues do Brasil"},
     "legenda": {
         "fonte": "Anton", "tamanho": 88, "max_chars": 20, "max_linhas": 2,
         "margem_vertical": 620, "margem_lateral": 110, "contorno": 7,
@@ -1132,6 +1140,154 @@ def cmd_flow(args) -> int:
     return 0
 
 
+# ---------------------------------------------------------------- gerar (API do Gemini)
+
+API = "https://generativelanguage.googleapis.com/v1beta"
+
+
+def gemini(metodo: str, caminho: str, corpo: dict | None = None, tentativas: int = 2) -> dict:
+    # a chave vem de GEMINI_API_KEY ou e injetada pelo proxy do ambiente (x-goog-api-key)
+    cab = {"Content-Type": "application/json",
+           "x-goog-api-key": os.environ.get("GEMINI_API_KEY", "injetada-pelo-proxy")}
+    dados = json.dumps(corpo).encode() if corpo is not None else None
+    for t in range(tentativas):
+        req = urllib.request.Request(f"{API}/{caminho}", data=dados, headers=cab, method=metodo)
+        try:
+            with urllib.request.urlopen(req, timeout=300) as r:
+                return json.loads(r.read())
+        except urllib.error.HTTPError as e:
+            msg = e.read().decode(errors="replace")[:600]
+            if e.code in (429, 500, 503) and t + 1 < tentativas:
+                print(f"  API {e.code}, tentando de novo em 20 s...")
+                time.sleep(20)
+                continue
+            raise RuntimeError(f"API do Gemini respondeu {e.code}: {msg}") from None
+    raise RuntimeError("API do Gemini sem resposta")
+
+
+def modelo_disponivel(desejado: str, tipo: str) -> str:
+    """Usa o modelo configurado; se ele nao existir mais, escolhe o mais novo do mesmo tipo."""
+    nomes = []
+    token = ""
+    while True:
+        r = gemini("GET", "models?pageSize=200" + (f"&pageToken={token}" if token else ""))
+        nomes += [m["name"].split("/", 1)[1] for m in r.get("models", [])
+                  if "generateContent" in m.get("supportedGenerationMethods", [])]
+        token = r.get("nextPageToken", "")
+        if not token:
+            break
+    if desejado in nomes:
+        return desejado
+    chave = "tts" if tipo == "voz" else "image"
+    opcoes = sorted((n for n in nomes if chave in n and "gemini" in n), reverse=True)
+    if not opcoes:
+        falhar(f"nenhum modelo de {tipo} disponivel na API (procurei '{chave}')")
+    print(f"  modelo '{desejado}' indisponivel; usando '{opcoes[0]}' (ajuste em projeto.json > ia)")
+    return opcoes[0]
+
+
+def partes_saida(r: dict) -> list[dict]:
+    for c in r.get("candidates", []):
+        for parte in c.get("content", {}).get("parts", []):
+            dado = parte.get("inlineData") or parte.get("inline_data")
+            if dado:
+                return [dado]
+    motivo = (r.get("promptFeedback") or {}).get("blockReason") or \
+        ",".join(c.get("finishReason", "?") for c in r.get("candidates", [])) or "resposta vazia"
+    raise RuntimeError(f"a API nao devolveu midia ({motivo})")
+
+
+def gerar_imagem(modelo: str, prompt: str, refs: list[Path], destino: Path, proporcao: str) -> None:
+    partes: list[dict] = []
+    for ref in refs:
+        partes.append({"inline_data": {"mime_type": "image/png", "data": base64.b64encode(ref.read_bytes()).decode()}})
+    if refs:
+        prompt = ("Use as imagens anexadas como referencia exata da aparencia dos personagens "
+                  "(mesmo formato, cores e acessorios). " + prompt)
+    partes.append({"text": prompt})
+    r = gemini("POST", f"models/{modelo}:generateContent", {
+        "contents": [{"parts": partes}],
+        "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": {"aspectRatio": proporcao}}})
+    dado = partes_saida(r)[0]
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    bruto = destino.with_suffix(".bruto")
+    bruto.write_bytes(base64.b64decode(dado["data"]))
+    run(["ffmpeg", "-y", "-v", "error", "-i", str(bruto), str(destino)])  # normaliza para PNG
+    bruto.unlink()
+
+
+def gerar_voz(modelo: str, texto: str, voz: str, estilo: str, idioma: str, destino: Path) -> None:
+    instrucao = f"Leia em {idioma}" + (f", com este jeito: {estilo}" if estilo else "")
+    r = gemini("POST", f"models/{modelo}:generateContent", {
+        "contents": [{"parts": [{"text": f"{instrucao}:\n{texto}"}]}],
+        "generationConfig": {"responseModalities": ["AUDIO"],
+                             "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voz}}}}})
+    dado = partes_saida(r)[0]
+    pcm = base64.b64decode(dado["data"])
+    taxa = 24000
+    m = re.search(r"rate=(\d+)", dado.get("mimeType", dado.get("mime_type", "")))
+    if m:
+        taxa = int(m.group(1))
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    with wave.open(str(destino), "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(taxa)
+        w.writeframes(pcm)
+
+
+def cmd_gerar(args) -> int:
+    ep = carregar(args.episodio)
+    ia = ep.cfg["ia"]
+    falhas = []
+    m_img = m_voz = None
+
+    if not args.so_vozes:
+        m_img = modelo_disponivel(ia["modelo_imagem"], "imagem")
+        refs_dir = ep.raiz / "config" / "referencias"
+        usados = list(dict.fromkeys(pid for p in ep.planos for pid in p.personagens))
+        for pid in usados:
+            alvo = refs_dir / f"{pid}.png"
+            if alvo.exists() or not ep.personagens.get(pid, {}).get("visual"):
+                continue
+            print(f"referencia de {ep.nome(pid)}...")
+            try:
+                gerar_imagem(m_img, prompt_referencia(ep, pid), [], alvo, "1:1")
+            except RuntimeError as e:
+                falhas.append(f"referencia {pid}: {e}")
+        for p in ep.planos:
+            if visual_do_plano(ep, p.n):
+                continue
+            print(f"imagem do plano {p.n:02d}...")
+            refs = [refs_dir / f"{pid}.png" for pid in p.personagens if (refs_dir / f"{pid}.png").exists()]
+            try:
+                gerar_imagem(m_img, prompt_imagem(ep, p), refs[:3],
+                             ep.dir / "frames" / f"plano-{p.n:02d}.png", "9:16")
+            except RuntimeError as e:
+                falhas.append(f"plano {p.n:02d}: {e}")
+
+    if not args.so_imagens:
+        m_voz = modelo_disponivel(ia["modelo_voz"], "voz")
+        for f in ep.falas:
+            alvo = ep.dir / "vozes" / f.arquivo
+            if alvo.exists():
+                continue
+            d = ep.personagens[f.personagem]
+            print(f"voz plano {f.plano:02d} fala {f.indice:02d} ({d.get('nome')})...")
+            try:
+                gerar_voz(m_voz, f.texto, d.get("voz", "Kore"), d.get("voz_estilo", ""), ia["idioma_voz"], alvo)
+            except RuntimeError as e:
+                falhas.append(f"voz {f.arquivo}: {e}")
+
+    if falhas:
+        print("nao gerado:\n  - " + "\n  - ".join(falhas))
+        print("rode o mesmo comando de novo: o que ja existe nao e gerado (nem cobrado) outra vez")
+        return 1
+    print("tudo gerado." + ("" if args.so_imagens or args.so_vozes else
+                            f" proximo passo: montar.py render {ep.dir.relative_to(ep.raiz)}"))
+    return 0
+
+
 # ---------------------------------------------------------------- cli
 
 def main() -> int:
@@ -1177,11 +1333,20 @@ def main() -> int:
                     help="modo UPLOAD: exporta um audio por cena a partir de vozes/ (sem usar o seletor de voz)")
     fp.set_defaults(func=cmd_flow)
 
+    gp = sub.add_parser("gerar", help="gera referencias, imagens e vozes pela API do Gemini (pula o que existe)")
+    gp.add_argument("episodio")
+    gp.add_argument("--so-imagens", action="store_true")
+    gp.add_argument("--so-vozes", action="store_true")
+    gp.set_defaults(func=cmd_gerar)
+
     args = ap.parse_args()
     if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
         falhar("ffmpeg/ffprobe nao encontrados no PATH")
     try:
         return args.func(args)
+    except RuntimeError as e:
+        print(f"erro: {e}", file=sys.stderr)
+        return 1
     except subprocess.CalledProcessError as e:
         print("ffmpeg falhou:\n" + (e.stderr or "")[-2000:], file=sys.stderr)
         return 1

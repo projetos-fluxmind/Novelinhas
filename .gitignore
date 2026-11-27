@@ -1,5 +1,5 @@
 __pycache__/
-episodios/*/saida/
+**/episodios/*/saida/
 /take*.wav
 *.parcial.mp4
-episodios/*/flow/audios/
+**/episodios/*/flow/audios/

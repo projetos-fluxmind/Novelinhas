@@ -1,0 +1,225 @@
+{
+  "episodio": 1,
+  "titulo": "O orçamento de três reais",
+  "gancho": "A FAMÍLIA TEM R$ 3 PRO NATAL INTEIRO...",
+  "final": "CONTINUA...",
+  "cenario": "sala pequena de uma casa humilde e acolhedora, sofa remendado com fita adesiva, parede com reboco aparecendo, enfeites de Natal improvisados, noite",
+  "hashtags": [
+    "#natalpobre"
+  ],
+  "planos": [
+    {
+      "n": 1,
+      "acao": "Dona Melancia bate uma panela com uma colher no meio da sala, chamando a familia",
+      "movimento": "impacto",
+      "falas": [
+        {
+          "personagem": "mae",
+          "texto": "Reunião de família! Todo mundo na sala, agora!"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "acao": "Seu Caju, Uvinha, Limaozinho e Vo Passinha espremidos no sofa remendado",
+      "personagens": [
+        "pai",
+        "filha",
+        "filho",
+        "vo"
+      ],
+      "falas": [
+        {
+          "personagem": "filho",
+          "texto": "Se for pra lavar louça, eu tô com febre."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "acao": "Dona Melancia segura um cofrinho de porquinho quebrado",
+      "falas": [
+        {
+          "personagem": "mae",
+          "texto": "Esse aqui é o dinheiro do nosso Natal. Inteirinho."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "acao": "Close nas maos de Dona Melancia: do cofrinho saem uma moeda e uma tampinha de garrafa",
+      "personagens": [
+        "mae"
+      ],
+      "movimento": "zoom-in",
+      "duracao": 1.6
+    },
+    {
+      "n": 5,
+      "acao": "Uvinha arregala os olhos, horrorizada",
+      "movimento": "impacto",
+      "falas": [
+        {
+          "personagem": "filha",
+          "texto": "Mãe, isso é uma tampinha de refrigerante!"
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "acao": "Dona Melancia ergue a tampinha como se fosse um trofeu",
+      "falas": [
+        {
+          "personagem": "mae",
+          "texto": "Tampinha vale ponto na promoção do mercado. Respeita a tampinha!"
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "acao": "Seu Caju pula do sofa com o dedo para cima, empolgado",
+      "movimento": "impacto",
+      "falas": [
+        {
+          "personagem": "pai",
+          "texto": "Calma, família! O papai aqui tem um plano infalível!"
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "acao": "Vo Passinha acorda de um cochilo no canto do sofa e ajeita os oculos",
+      "falas": [
+        {
+          "personagem": "vo",
+          "texto": "Lá vem... O último plano infalível dele foi criar galinha no quintal do vizinho."
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "acao": "Seu Caju abre os bracos, orgulhoso",
+      "falas": [
+        {
+          "personagem": "pai",
+          "texto": "E deu certo! A galinha agora é da família!"
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "acao": "Limaozinho mostra o braco cheio de marquinhas de bicada",
+      "personagens": [
+        "filho"
+      ],
+      "falas": [
+        {
+          "personagem": "filho",
+          "texto": "Ela bica todo mundo, pai."
+        }
+      ]
+    },
+    {
+      "n": 11,
+      "acao": "Seu Caju desenrola um cartaz enorme desenhado a mao com uma arvore, uma panela e um presente",
+      "movimento": "pan-direita",
+      "falas": [
+        {
+          "personagem": "pai",
+          "texto": "Plano Natal Rico: árvore de vassoura, ceia de miojo gourmet e presente feito à mão!"
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "acao": "Uvinha cruza os bracos e revira os olhos, segurando o celular rachado",
+      "falas": [
+        {
+          "personagem": "filha",
+          "texto": "Eu pedi um celular novo, pai. Feito à mão como?"
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "acao": "Seu Caju mostra dois copos de plastico ligados por um barbante, sorrindo",
+      "movimento": "zoom-in",
+      "falas": [
+        {
+          "personagem": "pai",
+          "texto": "Telefone de barbante! Sem conta, sem bateria e ninguém cai em golpe!"
+        }
+      ]
+    },
+    {
+      "n": 14,
+      "acao": "A familia inteira olha para Seu Caju em silencio absoluto",
+      "personagens": [
+        "mae",
+        "filha",
+        "filho",
+        "vo",
+        "pai"
+      ],
+      "movimento": "pan-esquerda",
+      "duracao": 1.5
+    },
+    {
+      "n": 15,
+      "acao": "Vo Passinha junta as maos olhando para o teto",
+      "falas": [
+        {
+          "personagem": "vo",
+          "texto": "Eu vou é rezar pro Papai Noel errar de casa... e cair na nossa."
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "acao": "Dona Melancia suspira e sorri para a familia",
+      "falas": [
+        {
+          "personagem": "mae",
+          "texto": "Pobre, mas unido. Ano que vem vai ser melhor."
+        }
+      ]
+    },
+    {
+      "n": 17,
+      "acao": "Limaozinho puxa o avental de Dona Melancia",
+      "personagens": [
+        "filho",
+        "mae"
+      ],
+      "falas": [
+        {
+          "personagem": "filho",
+          "texto": "Mãe, você fala isso todo ano."
+        }
+      ]
+    },
+    {
+      "n": 18,
+      "acao": "De repente a luz apaga; so se veem os olhos assustados da familia no escuro",
+      "cenario": "a mesma sala completamente no escuro, so os olhos brancos dos personagens aparecem",
+      "personagens": [
+        "mae",
+        "pai",
+        "filha",
+        "filho",
+        "vo"
+      ],
+      "movimento": "tremor",
+      "falas": [
+        {
+          "personagem": "filho",
+          "texto": "Mãe... cortaram a luz."
+        },
+        {
+          "personagem": "mae",
+          "texto": "Ninguém se mexe! Isso é economia de energia!"
+        }
+      ]
+    }
+  ]
+}
