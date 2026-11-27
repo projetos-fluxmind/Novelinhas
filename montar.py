@@ -27,6 +27,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -218,6 +219,21 @@ def carregar_cfg(raiz: Path) -> dict:
     return mesclar(PADRAO_PROJETO, ler_json(arq) if arq.exists() else {})
 
 
+def sem_acento(texto: str) -> str:
+    return "".join(c for c in unicodedata.normalize("NFD", texto) if not unicodedata.combining(c)).lower()
+
+
+def citados(acao: str, personagens: dict) -> list[str]:
+    """Ids dos personagens cujo nome aparece na acao, na ordem em que aparecem."""
+    alvo = sem_acento(acao)
+    achados = []
+    for pid, d in personagens.items():
+        m = re.search(r"\b" + re.escape(sem_acento(d.get("nome", pid))) + r"\b", alvo)
+        if m:
+            achados.append((m.start(), pid))
+    return [pid for _, pid in sorted(achados)]
+
+
 def carregar(ep_arg: str) -> Episodio:
     ep_dir = Path(ep_arg).resolve()
     if not (ep_dir / "roteiro.json").exists():
@@ -252,9 +268,11 @@ def carregar(ep_arg: str) -> Episodio:
             sfx = [sfx]
         sfx = [{"arquivo": s, "em": 0.0} if isinstance(s, str) else s for s in sfx]
         elenco = list(p.get("personagens", []))
-        for f in falas:
-            if f.personagem not in elenco:
-                elenco.append(f.personagem)
+        # quem fala e quem e citado pelo nome na acao entra no elenco do plano, para o prompt
+        # de imagem sempre descrever a aparencia de todo mundo que aparece em cena
+        for pid in [f.personagem for f in falas] + citados(p.get("acao", ""), personagens):
+            if pid not in elenco:
+                elenco.append(pid)
         planos.append(Plano(n=n, acao=p.get("acao", ""), cenario=p.get("cenario", roteiro.get("cenario", "")),
                             personagens=elenco, falas=falas, dur_fixa=p.get("duracao"),
                             movimento=mov, sfx=sfx))
@@ -366,10 +384,12 @@ def cmd_preparar(args) -> int:
             {"impacto": "zoom rapido dramatico no rosto", "tremor": "camera tremida de susto",
              "pan-direita": "camera desliza para a direita",
              "pan-esquerda": "camera desliza para a esquerda"}[p.movimento]
-        falando = ", ".join(ep.nome(f.personagem) for f in p.falas)
+        nomes = [ep.nome(pid) for pid in dict.fromkeys(f.personagem for f in p.falas)]
         video = f"{p.acao.rstrip('.') or 'Personagens reagem'}. {mov.capitalize()}."
-        if falando:
-            video += f" {falando} fala de forma expressiva, boca se mexendo."
+        if len(nomes) == 1:
+            video += f" {nomes[0]} fala de forma expressiva, boca se mexendo."
+        elif nomes:
+            video += f" {', '.join(nomes[:-1])} e {nomes[-1]} conversam de forma expressiva, bocas se mexendo."
         linhas += ["**Video (imagem -> video)**", "", "```", video + " Sem texto na tela.", "```", ""]
     (ep.dir / "prompts.md").write_text("\n".join(linhas), encoding="utf-8")
 
