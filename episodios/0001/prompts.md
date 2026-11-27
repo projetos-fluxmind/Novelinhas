@@ -2,20 +2,42 @@
 
 Gere uma imagem por plano e salve como `frames/plano-NN.png`.
 Se animar (Veo, Kling, Hailuo...), salve o video como `clipes/plano-NN.mp4`.
-Use sempre a mesma imagem de referencia de cada personagem para manter a aparencia.
+Antes de tudo, gere UMA imagem de referencia de cada personagem (prompts abaixo) e use-a
+como referencia em TODAS as imagens e clipes: e isso que mantem a fruta igual em todo episodio.
+Os clipes devem sair mudos (as vozes entram depois, pelo montar.py).
+
+## Referencias dos personagens
+
+**Moranguinha** -> salve como `config/referencias/morango.png`
+
+```
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Moranguinha: boneco de palito cuja cabeca e um morango grande e redondo, vermelho brilhante com sementinhas douradas e folhas verdes no topo como cabelo, olhos de bolinha com cilios longos, laco rosa, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Folha de referencia do personagem: corpo inteiro, de frente, em pe, pose neutra, fundo branco liso, sozinho, sem outros personagens, sem texto.
+```
+
+**Banana** -> salve como `config/referencias/banana.png`
+
+```
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Banana: boneco de palito cuja cabeca e uma banana amarela em pe com pontinhas marrons, olhos de bolinha, sorriso largo, oculos de sol no topo da cabeca, brincos de argola, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Folha de referencia do personagem: corpo inteiro, de frente, em pe, pose neutra, fundo branco liso, sozinho, sem outros personagens, sem texto.
+```
+
+**Seu Abacaxi** -> salve como `config/referencias/abacaxi.png`
+
+```
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Seu Abacaxi: boneco de palito mais velho cuja cabeca e um abacaxi dourado texturizado com coroa de folhas espetadas, olhos de bolinha, bigode grosso preto, sobrancelhas franzidas, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Folha de referencia do personagem: corpo inteiro, de frente, em pe, pose neutra, fundo branco liso, sozinho, sem outros personagens, sem texto.
+```
 
 ## Plano 01
 
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha entra correndo na cozinha, ofegante e assustada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Moranguinha: boneco de palito cuja cabeca e um morango grande e redondo, vermelho brilhante com sementinhas douradas e folhas verdes no topo como cabelo, olhos de bolinha com cilios longos, laco rosa, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha entra correndo na cozinha, ofegante e assustada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 4 s (plano estimado em ~4.3 s)
 
 ```
-Moranguinha entra correndo na cozinha, ofegante e assustada. Zoom rapido dramatico no rosto. Moranguinha fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Moranguinha entra correndo na cozinha, ofegante e assustada. Zoom rapido dramatico no rosto. Moranguinha gesticula com o corpo de forma expressiva. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 02
@@ -23,13 +45,13 @@ Moranguinha entra correndo na cozinha, ofegante e assustada. Zoom rapido dramati
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana lixando as unhas no balcão, sem tirar os olhos do celular. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Banana: boneco de palito cuja cabeca e uma banana amarela em pe com pontinhas marrons, olhos de bolinha, sorriso largo, oculos de sol no topo da cabeca, brincos de argola, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana lixando as unhas no balcão, sem tirar os olhos do celular. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 8 s (plano estimado em ~6.3 s)
 
 ```
-Banana lixando as unhas no balcão, sem tirar os olhos do celular. Camera lenta e sutil. Banana fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Banana lixando as unhas no balcão, sem tirar os olhos do celular. Camera lenta e sutil. Banana gesticula com o corpo de forma expressiva. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 03
@@ -37,13 +59,13 @@ Banana lixando as unhas no balcão, sem tirar os olhos do celular. Camera lenta 
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha se aproxima e sussurra. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Moranguinha: boneco de palito cuja cabeca e um morango grande e redondo, vermelho brilhante com sementinhas douradas e folhas verdes no topo como cabelo, olhos de bolinha com cilios longos, laco rosa, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha se aproxima e sussurra. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 8 s (plano estimado em ~5.4 s)
 
 ```
-Moranguinha se aproxima e sussurra. Camera lenta e sutil. Moranguinha fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Moranguinha se aproxima e sussurra. Camera lenta e sutil. Moranguinha gesticula com o corpo de forma expressiva. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 04
@@ -51,13 +73,13 @@ Moranguinha se aproxima e sussurra. Camera lenta e sutil. Moranguinha fala de fo
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana derruba a lixa, olhos arregalados. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Banana: boneco de palito cuja cabeca e uma banana amarela em pe com pontinhas marrons, olhos de bolinha, sorriso largo, oculos de sol no topo da cabeca, brincos de argola, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana derruba a lixa, olhos arregalados. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 4 s (plano estimado em ~1.8 s)
 
 ```
-Banana derruba a lixa, olhos arregalados. Camera tremida de susto. Sem texto na tela.
+Banana derruba a lixa, olhos arregalados. Camera tremida de susto. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 05
@@ -65,13 +87,13 @@ Banana derruba a lixa, olhos arregalados. Camera tremida de susto. Sem texto na 
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana disfarça, olhando para os lados. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Banana: boneco de palito cuja cabeca e uma banana amarela em pe com pontinhas marrons, olhos de bolinha, sorriso largo, oculos de sol no topo da cabeca, brincos de argola, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana disfarça, olhando para os lados. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 4 s (plano estimado em ~4.3 s)
 
 ```
-Banana disfarça, olhando para os lados. Camera lenta e sutil. Banana fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Banana disfarça, olhando para os lados. Camera lenta e sutil. Banana gesticula com o corpo de forma expressiva. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 06
@@ -79,13 +101,13 @@ Banana disfarça, olhando para os lados. Camera lenta e sutil. Banana fala de fo
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha cruza os bracos, desconfiada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Moranguinha: boneco de palito cuja cabeca e um morango grande e redondo, vermelho brilhante com sementinhas douradas e folhas verdes no topo como cabelo, olhos de bolinha com cilios longos, laco rosa, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha cruza os bracos, desconfiada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 8 s (plano estimado em ~5.1 s)
 
 ```
-Moranguinha cruza os bracos, desconfiada. Camera lenta e sutil. Moranguinha fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Moranguinha cruza os bracos, desconfiada. Camera lenta e sutil. Moranguinha gesticula com o corpo de forma expressiva. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 07
@@ -93,13 +115,13 @@ Moranguinha cruza os bracos, desconfiada. Camera lenta e sutil. Moranguinha fala
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Seu Abacaxi: abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Seu Abacaxi aparece na porta, sério, com a mala na mao. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Seu Abacaxi: boneco de palito mais velho cuja cabeca e um abacaxi dourado texturizado com coroa de folhas espetadas, olhos de bolinha, bigode grosso preto, sobrancelhas franzidas, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Seu Abacaxi aparece na porta, sério, com a mala na mao. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 4 s (plano estimado em ~2.3 s)
 
 ```
-Seu Abacaxi aparece na porta, sério, com a mala na mao. Zoom rapido dramatico no rosto. Seu Abacaxi fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Seu Abacaxi aparece na porta, sério, com a mala na mao. Zoom rapido dramatico no rosto. Seu Abacaxi gesticula com o corpo de forma expressiva. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 08
@@ -107,13 +129,13 @@ Seu Abacaxi aparece na porta, sério, com a mala na mao. Zoom rapido dramatico n
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha e Banana congeladas, se entreolhando. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Moranguinha: boneco de palito cuja cabeca e um morango grande e redondo, vermelho brilhante com sementinhas douradas e folhas verdes no topo como cabelo, olhos de bolinha com cilios longos, laco rosa, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Banana: boneco de palito cuja cabeca e uma banana amarela em pe com pontinhas marrons, olhos de bolinha, sorriso largo, oculos de sol no topo da cabeca, brincos de argola, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha e Banana congeladas, se entreolhando. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 4 s (plano estimado em ~1.9 s)
 
 ```
-Moranguinha e Banana congeladas, se entreolhando. Camera desliza para a direita. Sem texto na tela.
+Moranguinha e Banana congeladas, se entreolhando. Camera desliza para a direita. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 09
@@ -121,13 +143,13 @@ Moranguinha e Banana congeladas, se entreolhando. Camera desliza para a direita.
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Seu Abacaxi: abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Seu Abacaxi coloca a mala na mesa devagar. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Seu Abacaxi: boneco de palito mais velho cuja cabeca e um abacaxi dourado texturizado com coroa de folhas espetadas, olhos de bolinha, bigode grosso preto, sobrancelhas franzidas, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Seu Abacaxi coloca a mala na mesa devagar. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 8 s (plano estimado em ~7.3 s)
 
 ```
-Seu Abacaxi coloca a mala na mesa devagar. Camera lenta e sutil. Seu Abacaxi fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Seu Abacaxi coloca a mala na mesa devagar. Camera lenta e sutil. Seu Abacaxi gesticula com o corpo de forma expressiva. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 10
@@ -135,13 +157,13 @@ Seu Abacaxi coloca a mala na mesa devagar. Camera lenta e sutil. Seu Abacaxi fal
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha olha para Banana, magoada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Moranguinha: boneco de palito cuja cabeca e um morango grande e redondo, vermelho brilhante com sementinhas douradas e folhas verdes no topo como cabelo, olhos de bolinha com cilios longos, laco rosa, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Banana: boneco de palito cuja cabeca e uma banana amarela em pe com pontinhas marrons, olhos de bolinha, sorriso largo, oculos de sol no topo da cabeca, brincos de argola, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha olha para Banana, magoada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 4 s (plano estimado em ~2.4 s)
 
 ```
-Moranguinha olha para Banana, magoada. Camera lenta e sutil. Moranguinha fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Moranguinha olha para Banana, magoada. Camera lenta e sutil. Moranguinha gesticula com o corpo de forma expressiva. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 11
@@ -149,13 +171,13 @@ Moranguinha olha para Banana, magoada. Camera lenta e sutil. Moranguinha fala de
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana abaixa a cabeça, envergonhada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Banana: boneco de palito cuja cabeca e uma banana amarela em pe com pontinhas marrons, olhos de bolinha, sorriso largo, oculos de sol no topo da cabeca, brincos de argola, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana abaixa a cabeça, envergonhada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 8 s (plano estimado em ~4.5 s)
 
 ```
-Banana abaixa a cabeça, envergonhada. Camera lenta e sutil. Banana fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Banana abaixa a cabeça, envergonhada. Camera lenta e sutil. Banana gesticula com o corpo de forma expressiva. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 12
@@ -163,13 +185,13 @@ Banana abaixa a cabeça, envergonhada. Camera lenta e sutil. Banana fala de form
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha da um passo para trás, com lágrimas nos olhos. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Moranguinha: boneco de palito cuja cabeca e um morango grande e redondo, vermelho brilhante com sementinhas douradas e folhas verdes no topo como cabelo, olhos de bolinha com cilios longos, laco rosa, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Moranguinha da um passo para trás, com lágrimas nos olhos. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 8 s (plano estimado em ~5.0 s)
 
 ```
-Moranguinha da um passo para trás, com lágrimas nos olhos. Camera lenta e sutil. Moranguinha fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Moranguinha da um passo para trás, com lágrimas nos olhos. Camera lenta e sutil. Moranguinha gesticula com o corpo de forma expressiva. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 13
@@ -177,13 +199,13 @@ Moranguinha da um passo para trás, com lágrimas nos olhos. Camera lenta e suti
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Seu Abacaxi: abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Seu Abacaxi suspira e puxa uma cadeira para ela. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Seu Abacaxi: boneco de palito mais velho cuja cabeca e um abacaxi dourado texturizado com coroa de folhas espetadas, olhos de bolinha, bigode grosso preto, sobrancelhas franzidas, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Seu Abacaxi suspira e puxa uma cadeira para ela. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 8 s (plano estimado em ~5.2 s)
 
 ```
-Seu Abacaxi suspira e puxa uma cadeira para ela. Camera lenta e sutil. Seu Abacaxi fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Seu Abacaxi suspira e puxa uma cadeira para ela. Camera lenta e sutil. Seu Abacaxi gesticula com o corpo de forma expressiva. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 14
@@ -191,13 +213,13 @@ Seu Abacaxi suspira e puxa uma cadeira para ela. Camera lenta e sutil. Seu Abaca
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana tapa a boca com as mãos, chocada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Banana: boneco de palito cuja cabeca e uma banana amarela em pe com pontinhas marrons, olhos de bolinha, sorriso largo, oculos de sol no topo da cabeca, brincos de argola, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Banana tapa a boca com as mãos, chocada. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 4 s (plano estimado em ~1.7 s)
 
 ```
-Banana tapa a boca com as mãos, chocada. Zoom rapido dramatico no rosto. Sem texto na tela.
+Banana tapa a boca com as mãos, chocada. Zoom rapido dramatico no rosto. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```
 
 ## Plano 15
@@ -205,11 +227,11 @@ Banana tapa a boca com as mãos, chocada. Zoom rapido dramatico no rosto. Sem te
 **Imagem**
 
 ```
-Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo. Moranguinha: morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa. Banana: banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola. Seu Abacaxi: abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Seu Abacaxi abre a mala; uma luz dourada ilumina o rosto dos tres. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
+Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras. Moranguinha: boneco de palito cuja cabeca e um morango grande e redondo, vermelho brilhante com sementinhas douradas e folhas verdes no topo como cabelo, olhos de bolinha com cilios longos, laco rosa, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Banana: boneco de palito cuja cabeca e uma banana amarela em pe com pontinhas marrons, olhos de bolinha, sorriso largo, oculos de sol no topo da cabeca, brincos de argola, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Seu Abacaxi: boneco de palito mais velho cuja cabeca e um abacaxi dourado texturizado com coroa de folhas espetadas, olhos de bolinha, bigode grosso preto, sobrancelhas franzidas, bracos e pernas pretos e finos, luvinhas brancas de desenho animado. Cenario: cozinha colorida de uma casa de frutas, manhã ensolarada. Cena: Seu Abacaxi abre a mala; uma luz dourada ilumina o rosto dos tres. Formato vertical 9:16, personagens no terco central da imagem, sem texto, sem legendas, sem marca d'agua.
 ```
 
-**Video (imagem -> video)**
+**Video (imagem -> video)** - clipe de 8 s (plano estimado em ~5.2 s)
 
 ```
-Seu Abacaxi abre a mala; uma luz dourada ilumina o rosto dos tres. Camera tremida de susto. Seu Abacaxi fala de forma expressiva, boca se mexendo. Sem texto na tela.
+Seu Abacaxi abre a mala; uma luz dourada ilumina o rosto dos tres. Camera tremida de susto. Seu Abacaxi gesticula com o corpo de forma expressiva. Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave. Sem texto na tela.
 ```

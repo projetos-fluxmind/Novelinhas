@@ -94,13 +94,16 @@ Se preferir gravar ou gerar fala por fala, é só salvar em `vozes/plano-NN-fala
 
 `prompts.md` junta, para cada plano, o `estilo_visual` do projeto + a descrição `visual` de cada
 personagem em cena + cenário + ação. Como a descrição é sempre a mesma, a fruta sai parecida de um
-episódio para o outro. Para ficar ainda mais fiel, use a mesma imagem de referência de cada
-personagem no gerador. Também sai um prompt de imagem→vídeo por plano.
+episódio para o outro. O `prompts.md` começa com um prompt de **imagem de referência** de cada
+personagem (corpo inteiro, fundo branco): gere uma vez, guarde em `config/referencias/` e use como
+referência em todas as imagens e clipes. Também sai um prompt de imagem→vídeo por plano, com a
+duração de clipe sugerida (4 s ou 8 s, pela duração estimada das falas) e pedindo clipe **mudo,
+de bocas fechadas** — as vozes do TTS entram depois, então fala gerada pelo vídeo só atrapalharia.
 
 ## O que o render faz
 
 - encaixa cada plano em número inteiro de quadros (áudio e vídeo nunca escorregam);
-- clipe mais curto que o plano congela no último quadro em vez de encurtar o vídeo;
+- clipe mais curto que o plano é desacelerado em até 15% e, se ainda faltar, congela no último quadro;
 - legenda colorida por personagem, em maiúsculas, em blocos curtos que trocam no ritmo da fala,
   com animação de "pop", posicionada acima da área de botões do TikTok/Shorts;
 - trilha que abaixa sozinha quando alguém fala (ducking) e faz fade no fim;

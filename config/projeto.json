@@ -2,7 +2,7 @@
   "nome_serie": "Novelinha das Frutas",
   "arroba": "@novelinhadasfrutas",
   "hashtags": ["#novelinha", "#frutas", "#novela", "#drama", "#shorts"],
-  "estilo_visual": "Animacao 3D de alta qualidade, personagens de frutas fofas e expressivas com bracos e pernas, olhos grandes, iluminacao cinematografica suave, cores vibrantes, profundidade de campo",
+  "estilo_visual": "Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras",
 
   "video":   { "fps": 30, "crf": 20, "preset": "veryfast", "dur_plano_mudo": 2.0 },
   "legenda": { "fonte": "Anton", "tamanho": 88, "max_chars": 20, "max_linhas": 2,

@@ -369,6 +369,15 @@ def prompt_imagem(ep: Episodio, p: Plano) -> str:
     return ". ".join(partes) + "."
 
 
+def prompt_referencia(ep: Episodio, pid: str) -> str:
+    d = ep.personagens[pid]
+    partes = [ep.cfg["estilo_visual"].rstrip(".")] if ep.cfg.get("estilo_visual") else []
+    partes += [f"{d.get('nome', pid)}: {d['visual'].rstrip('.')}",
+               "Folha de referencia do personagem: corpo inteiro, de frente, em pe, pose neutra, "
+               "fundo branco liso, sozinho, sem outros personagens, sem texto"]
+    return ". ".join(partes) + "."
+
+
 def cmd_preparar(args) -> int:
     ep = carregar(args.episodio)
     rel = ep.dir.relative_to(ep.raiz)
@@ -377,7 +386,14 @@ def cmd_preparar(args) -> int:
     linhas = [f"# Episodio {ep.numero} - {ep.roteiro.get('titulo', '')}", "",
               "Gere uma imagem por plano e salve como `frames/plano-NN.png`.",
               "Se animar (Veo, Kling, Hailuo...), salve o video como `clipes/plano-NN.mp4`.",
-              "Use sempre a mesma imagem de referencia de cada personagem para manter a aparencia.", ""]
+              "Antes de tudo, gere UMA imagem de referencia de cada personagem (prompts abaixo) e use-a",
+              "como referencia em TODAS as imagens e clipes: e isso que mantem a fruta igual em todo episodio.",
+              "Os clipes devem sair mudos (as vozes entram depois, pelo montar.py).", "",
+              "## Referencias dos personagens", ""]
+    for pid, d in ep.personagens.items():
+        if d.get("visual"):
+            linhas += [f"**{d.get('nome', pid)}** -> salve como `config/referencias/{pid}.png`", "", "```",
+                       prompt_referencia(ep, pid), "```", ""]
     for p in ep.planos:
         linhas += [f"## Plano {p.n:02d}", "", "**Imagem**", "", "```", prompt_imagem(ep, p), "```", ""]
         mov = "camera lenta e sutil" if p.movimento in ("auto", "zoom-in", "zoom-out", "parado") else \
@@ -386,11 +402,15 @@ def cmd_preparar(args) -> int:
              "pan-esquerda": "camera desliza para a esquerda"}[p.movimento]
         nomes = [ep.nome(pid) for pid in dict.fromkeys(f.personagem for f in p.falas)]
         video = f"{p.acao.rstrip('.') or 'Personagens reagem'}. {mov.capitalize()}."
-        if len(nomes) == 1:
-            video += f" {nomes[0]} fala de forma expressiva, boca se mexendo."
-        elif nomes:
-            video += f" {', '.join(nomes[:-1])} e {nomes[-1]} conversam de forma expressiva, bocas se mexendo."
-        linhas += ["**Video (imagem -> video)**", "", "```", video + " Sem texto na tela.", "```", ""]
+        if nomes:
+            quem = nomes[0] if len(nomes) == 1 else f"{', '.join(nomes[:-1])} e {nomes[-1]}"
+            video += f" {quem} gesticula com o corpo de forma expressiva."
+        video += (" Sem fala, sem voz, sem narracao, sem dialogo, bocas fechadas. So som ambiente suave."
+                  " Sem texto na tela.")
+        alvo = (sum(estimar_dur(f.texto) for f in p.falas) or (p.dur_fixa or ep.cfg["video"]["dur_plano_mudo"])) + 0.4
+        clipe = "4 s" if alvo <= 4.4 else ("8 s" if alvo <= 8.4 else "8 s + continuacao de 4 s da mesma acao")
+        linhas += [f"**Video (imagem -> video)** - clipe de {clipe} (plano estimado em ~{alvo:.1f} s)", "",
+                   "```", video, "```", ""]
     (ep.dir / "prompts.md").write_text("\n".join(linhas), encoding="utf-8")
 
     # 2. texto para o TTS
@@ -742,9 +762,11 @@ def render_segmento(origem: Path, movel: bool, frames: int, mov: str, cfg: dict,
     fps = cfg["video"]["fps"]
     enquadrar = f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1"
     if movel:
-        # se o clipe for mais curto que o plano, congela o ultimo quadro em vez de encurtar o video
-        vf = (f"{enquadrar},fps={fps},tpad=stop_mode=clone:stop_duration={frames / fps + 1:.3f},"
-              "format=yuv420p")
+        # clipe mais curto que o plano: primeiro desacelera ate 15% (quase imperceptivel),
+        # e so o que ainda faltar vira o ultimo quadro congelado
+        lento = min(max((frames / fps) / max(ffprobe_dur(origem), 0.1), 1.0), 1.15)
+        vf = (f"setpts={lento:.4f}*PTS,{enquadrar},fps={fps},"
+              f"tpad=stop_mode=clone:stop_duration={frames / fps + 1:.3f},format=yuv420p")
         cmd = ["ffmpeg", "-y", "-v", "error", "-i", str(origem)]
     else:
         z, x, y = expr_movimento(mov, frames, fps)

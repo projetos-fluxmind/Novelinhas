@@ -4,20 +4,20 @@
     "legenda_cor": "#FF4D6D",
     "voz": "Kore",
     "voz_estilo": "jovem, dramatica, fala rapido quando fica nervosa",
-    "visual": "morango antropomorfico feminino, vermelho brilhante com sementes douradas, folhas verdes como cabelo, olhos grandes castanhos com cilios longos, laco rosa"
+    "visual": "boneco de palito cuja cabeca e um morango grande e redondo, vermelho brilhante com sementinhas douradas e folhas verdes no topo como cabelo, olhos de bolinha com cilios longos, laco rosa, bracos e pernas pretos e finos, luvinhas brancas de desenho animado"
   },
   "banana": {
     "nome": "Banana",
     "legenda_cor": "#FFD60A",
     "voz": "Puck",
     "voz_estilo": "debochada, fofoqueira, risadinha no fim das frases",
-    "visual": "banana antropomorfica feminina, amarela com pontinhas marrons, oculos de sol na cabeca, sorriso largo, brincos de argola"
+    "visual": "boneco de palito cuja cabeca e uma banana amarela em pe com pontinhas marrons, olhos de bolinha, sorriso largo, oculos de sol no topo da cabeca, brincos de argola, bracos e pernas pretos e finos, luvinhas brancas de desenho animado"
   },
   "abacaxi": {
     "nome": "Seu Abacaxi",
     "legenda_cor": "#7CFC00",
     "voz": "Charon",
     "voz_estilo": "grave, serio, pai rigido e desconfiado",
-    "visual": "abacaxi antropomorfico masculino mais velho, casca dourada texturizada, coroa de folhas espetadas, bigode grosso, sobrancelhas franzidas"
+    "visual": "boneco de palito mais velho cuja cabeca e um abacaxi dourado texturizado com coroa de folhas espetadas, olhos de bolinha, bigode grosso preto, sobrancelhas franzidas, bracos e pernas pretos e finos, luvinhas brancas de desenho animado"
   }
 }
