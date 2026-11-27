@@ -17,6 +17,10 @@ python montar.py validar episodios/0002                  # diz exatamente o que 
 python montar.py render  episodios/0002                  # MP4 + capa + descrição em saida/
 ```
 
+**Alternativa com Google Flow** (clipes animados de boneco de palito feitos por uma ferramenta dentro
+do Flow): `python montar.py flow episodios/0002 [--upload]` gera o roteiro no formato da ferramenta.
+Passo a passo e prompts em [`flow/PROMPTS-FLOW.md`](flow/PROMPTS-FLOW.md).
+
 ## Entregando imagens e vozes (`importar`)
 
 Jogue tudo numa pasta (ex.: `entrada/0002/`) **sem renomear nada** e rode `importar`:

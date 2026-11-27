@@ -369,6 +369,14 @@ def prompt_imagem(ep: Episodio, p: Plano) -> str:
     return ". ".join(partes) + "."
 
 
+def texto_camera(p: Plano) -> str:
+    if p.movimento in ("auto", "zoom-in", "zoom-out", "parado"):
+        return "camera lenta e sutil"
+    return {"impacto": "zoom rapido dramatico no rosto", "tremor": "camera tremida de susto",
+            "pan-direita": "camera desliza para a direita",
+            "pan-esquerda": "camera desliza para a esquerda"}[p.movimento]
+
+
 def prompt_referencia(ep: Episodio, pid: str) -> str:
     d = ep.personagens[pid]
     partes = [ep.cfg["estilo_visual"].rstrip(".")] if ep.cfg.get("estilo_visual") else []
@@ -396,10 +404,7 @@ def cmd_preparar(args) -> int:
                        prompt_referencia(ep, pid), "```", ""]
     for p in ep.planos:
         linhas += [f"## Plano {p.n:02d}", "", "**Imagem**", "", "```", prompt_imagem(ep, p), "```", ""]
-        mov = "camera lenta e sutil" if p.movimento in ("auto", "zoom-in", "zoom-out", "parado") else \
-            {"impacto": "zoom rapido dramatico no rosto", "tremor": "camera tremida de susto",
-             "pan-direita": "camera desliza para a direita",
-             "pan-esquerda": "camera desliza para a esquerda"}[p.movimento]
+        mov = texto_camera(p)
         nomes = [ep.nome(pid) for pid in dict.fromkeys(f.personagem for f in p.falas)]
         video = f"{p.acao.rstrip('.') or 'Personagens reagem'}. {mov.capitalize()}."
         if nomes:
@@ -1057,6 +1062,74 @@ def escrever_descricao(ep: Episodio, destino: Path) -> None:
     destino.write_text("\n".join(linhas) + "\n", encoding="utf-8")
 
 
+# ---------------------------------------------------------------- flow
+
+def cenas_flow(ep: Episodio) -> list[dict]:
+    """Uma cena do Flow por plano; plano com mais de uma voz vira uma cena por fala (1 locutor por cena)."""
+    cenas = []
+    for p in ep.planos:
+        grupos: list[list[Fala]] = []
+        for f in p.falas:
+            if grupos and grupos[-1][0].personagem == f.personagem:
+                grupos[-1].append(f)
+            else:
+                grupos.append([f])
+        for g in grupos or [[]]:
+            cenas.append({"plano": p, "falas": g})
+    return cenas
+
+
+def cmd_flow(args) -> int:
+    ep = carregar(args.episodio)
+    rel = ep.dir.relative_to(ep.raiz)
+    destino = ep.dir / "flow"
+    destino.mkdir(exist_ok=True)
+    cenas = cenas_flow(ep)
+    elenco = dict.fromkeys(pid for p in ep.planos for pid in p.personagens)
+    linhas = [f"TITLE: Episodio {ep.numero} - {ep.roteiro.get('titulo', '')}",
+              f"HOOK: {ep.roteiro.get('gancho', '')}",
+              f"END: {texto_final(ep)}",
+              "CAST: " + " | ".join(f"{ep.nome(pid)} = {ep.personagens[pid].get('voz', '?')}" for pid in elenco),
+              f"MODE: {'UPLOAD' if args.upload else 'FLOW VOICE'}"]
+    longas = []
+    for i, c in enumerate(cenas, 1):
+        p = c["plano"]
+        partes = [f"SCENE {i}", "CHARACTERS: " + ", ".join(ep.nome(x) for x in p.personagens),
+                  f"SETTING: {p.cenario}", f"ACTION: {p.acao}", f"CAMERA: {texto_camera(p)}"]
+        if c["falas"]:
+            fala = " ".join(f.texto for f in c["falas"])
+            if len(fala) > 150:
+                longas.append(i)
+            partes += [f"SPEAKER: {ep.nome(c['falas'][0].personagem)}", f"LINE: {fala}"]
+        else:
+            partes.append(f"SILENT: {p.dur_fixa or ep.cfg['video']['dur_plano_mudo']}")
+        linhas.append(" | ".join(partes))
+    (destino / "claude-input.txt").write_text("\n".join(linhas) + "\n", encoding="utf-8")
+    print(f"gerado {rel}/flow/claude-input.txt ({len(cenas)} cenas) - cole na caixa Claude Input da ferramenta")
+    if longas:
+        print(f"  aviso: cenas {', '.join(map(str, longas))} com fala acima de 150 caracteres; divida em 2 planos")
+
+    if args.upload:
+        faltam = [f.arquivo for c in cenas for f in c["falas"] if not (ep.dir / "vozes" / f.arquivo).exists()]
+        if faltam:
+            falhar("faltam vozes para o modo UPLOAD (rode split/importar antes): " + ", ".join(faltam[:5]))
+        pasta = destino / "audios"
+        pasta.mkdir(exist_ok=True)
+        for i, c in enumerate(cenas, 1):
+            if not c["falas"]:
+                continue
+            entradas, filtro = [], ""
+            for j, f in enumerate(c["falas"]):
+                entradas += ["-i", str(ep.dir / "vozes" / f.arquivo)]
+                filtro += f"[{j}:a]aresample=44100,aformat=channel_layouts=mono,apad=pad_dur=0.25[a{j}];"
+            filtro += "".join(f"[a{j}]" for j in range(len(c["falas"])))
+            filtro += f"concat=n={len(c['falas'])}:v=0:a=1,areverse,silenceremove=start_periods=1:start_threshold=-50dB,areverse[out]"
+            run(["ffmpeg", "-y", "-v", "error", *entradas, "-filter_complex", filtro, "-map", "[out]",
+                 str(pasta / f"cena-{i:02d}.wav")])
+        print(f"gerado {rel}/flow/audios/cena-NN.wav - arraste na ferramenta (modo UPLOAD)")
+    return 0
+
+
 # ---------------------------------------------------------------- cli
 
 def main() -> int:
@@ -1095,6 +1168,12 @@ def main() -> int:
     rp.add_argument("episodio")
     rp.add_argument("--manter-temp", action="store_true")
     rp.set_defaults(func=cmd_render)
+
+    fp = sub.add_parser("flow", help="gera o texto para a ferramenta do Google Flow (e os audios por cena)")
+    fp.add_argument("episodio")
+    fp.add_argument("--upload", action="store_true",
+                    help="modo UPLOAD: exporta um audio por cena a partir de vozes/ (sem usar o seletor de voz)")
+    fp.set_defaults(func=cmd_flow)
 
     args = ap.parse_args()
     if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
