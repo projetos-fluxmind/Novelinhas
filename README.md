@@ -108,7 +108,8 @@ de bocas fechadas** — as vozes do TTS entram depois, então fala gerada pelo v
 
 - encaixa cada plano em número inteiro de quadros (áudio e vídeo nunca escorregam);
 - clipe mais curto que o plano é desacelerado em até 15% e, se ainda faltar, congela no último quadro;
-- legenda colorida por personagem, em maiúsculas, em blocos curtos que trocam no ritmo da fala,
+- legenda das falas **desligada** (`"legenda": {"ativa": false}` em `projeto.json`): usamos a legenda
+  automática do TikTok. Com `true`, volta a legenda colorida por personagem, em maiúsculas, em blocos curtos que trocam no ritmo da fala,
   com animação de "pop", posicionada acima da área de botões do TikTok/Shorts;
 - trilha que abaixa sozinha quando alguém fala (ducking) e faz fade no fim;
 - loudness normalizado em −14 LUFS (padrão das plataformas);

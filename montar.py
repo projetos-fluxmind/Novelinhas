@@ -818,7 +818,9 @@ def gerar_ass(ep: Episodio, total: float, destino: Path) -> None:
 
     eventos = []
     fps = cfg["video"]["fps"]
-    falas = sorted(ep.falas, key=lambda f: f.inicio)
+    # "ativa": false -> sem legenda das falas no video (usa a legenda automatica do TikTok);
+    # gancho e "continua" continuam aparecendo
+    falas = sorted(ep.falas, key=lambda f: f.inicio) if L.get("ativa", True) else []
     for k, f in enumerate(falas):
         texto = limpar_ass(f.texto)
         if L["maiusculas"]:

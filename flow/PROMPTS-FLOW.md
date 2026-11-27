@@ -1,7 +1,8 @@
 # Novelinha das Frutas no Google Flow (boneco de palito)
 
 Adaptação do "Stickman Autopilot 2.0" para a novela: vídeo **vertical 9:16**, **vários
-personagens com vozes diferentes**, falas em português, legenda e gancho na tela.
+personagens com vozes diferentes**, falas em português e gancho na tela. A legenda das falas fica
+por conta da legenda automática do TikTok (ative ao postar).
 
 O princípio é o mesmo do vídeo: **o trabalho pesado fica com uma ferramenta dentro do Flow**.
 O Claude (ou você) só cola o roteiro e aperta INICIAR — por isso gasta pouco token.
@@ -100,10 +101,8 @@ every scene has its own audio.
   leave a voice line without a picture. Mix soft clip ambience at -28 dB under the voices.
 
 5. TEXT ON SCREEN
-- Burn each LINE as a caption while it is spoken: bold condensed font, UPPERCASE, thick black outline,
-  max 2 lines of about 20 characters, split into short chunks timed across the line, centered at
-  about 65% of the height (above the TikTok/Shorts buttons). Color by speaker: Moranguinha #FF4D6D,
-  Banana #FFD60A, Seu Abacaxi #7CFC00, anyone else white.
+- No captions and no subtitles: the voice lines are NOT written on screen (captions are added later
+  by TikTok).
 - Show HOOK in white with a dark box at the top for the first 3 s.
 - After the last scene, hold its last frame 1.6 s more and show END big in the center, yellow.
 
@@ -193,5 +192,7 @@ e-mail. Depois feche as abas extras, deixando so uma em branco. Responda em uma 
   imagem mostra outra. Vale para escrever o `roteiro.json`.
 - Não rode um atrás do outro; dê uma pausa entre vídeos.
 - Se o seletor de voz parar de abrir (login expirou), recarregue o Flow e mande o Claude continuar.
-- Se a legenda da ferramenta sair ruim, baixe os clipes por cena, coloque em `clipes/plano-NN.mp4`
-  e rode `montar.py render`: o render daqui põe legenda, gancho, trilha e "continua".
+- Ao postar no TikTok, ative a **legenda automática** (Legendas → gerar) e revise os nomes
+  (Moranguinha, Seu Abacaxi) antes de publicar — o reconhecimento costuma errar nomes próprios.
+- Se o vídeo final da ferramenta sair ruim, baixe os clipes por cena, coloque em
+  `clipes/plano-NN.mp4` e rode `montar.py render`: o render daqui põe gancho, trilha e "continua".

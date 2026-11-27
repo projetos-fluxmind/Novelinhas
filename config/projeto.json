@@ -5,7 +5,7 @@
   "estilo_visual": "Desenho animado simples estilo stickman (boneco de palito) feito a mao, contornos pretos finos, cores chapadas suaves, cenario desenhado a mao com bastante detalhe, ilustracao calorosa, sem texto, sem letras",
 
   "video":   { "fps": 30, "crf": 20, "preset": "veryfast", "dur_plano_mudo": 2.0 },
-  "legenda": { "fonte": "Anton", "tamanho": 88, "max_chars": 20, "max_linhas": 2,
+  "legenda": { "ativa": false, "fonte": "Anton", "tamanho": 88, "max_chars": 20, "max_linhas": 2,
                "margem_vertical": 620, "margem_lateral": 110, "contorno": 7,
                "maiusculas": true, "mostrar_nome": false, "animar": true },
   "audio":   { "velocidade_voz": 1.08, "respiro_antes": 0.15, "respiro_depois": 0.30,
